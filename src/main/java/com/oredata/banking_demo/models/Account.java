@@ -4,6 +4,8 @@ package com.oredata.banking_demo.models;
 import jakarta.persistence.*;
 import lombok.*;
 import com.oredata.banking_demo.models.base.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import java.math.BigDecimal;
 
@@ -27,5 +29,6 @@ public class Account extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 }

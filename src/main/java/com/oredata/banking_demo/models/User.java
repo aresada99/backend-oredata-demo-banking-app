@@ -28,5 +28,6 @@ public class User extends BaseEntity {
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Account> accounts;
 }

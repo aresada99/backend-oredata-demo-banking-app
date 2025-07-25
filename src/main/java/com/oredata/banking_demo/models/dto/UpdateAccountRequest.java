@@ -7,6 +7,6 @@ import lombok.Data;
 @Data
 public class UpdateAccountRequest {
     @NotBlank
-    @Schema(description = "Hesap adı (unique olmalı)", example = "Main Account")
+    @Schema(description = "Account Name (unique)", example = "Main Account")
     private String name;
 }

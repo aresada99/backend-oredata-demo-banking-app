@@ -9,6 +9,4 @@ import java.util.UUID;
 
 public interface TransactionRepository extends JpaRepository<Transaction,Long> {
     List<Transaction> findByFromIdOrToId(UUID fromId, UUID toId);
-
-
 }

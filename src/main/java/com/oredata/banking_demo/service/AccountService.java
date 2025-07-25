@@ -39,11 +39,6 @@ public class AccountService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException("User not found"));
 
-        /*
-        List<Account> accounts = accountRepository.findByUserAndNumberContainingIgnoreCaseOrUserAndNameContainingIgnoreCase(
-                user, number != null ? number : "", user, name != null ? name : "");
-        */
-
         number = (number != null && !number.isBlank()) ? number : null;
         name = (name != null && !name.isBlank()) ? name : null;
 

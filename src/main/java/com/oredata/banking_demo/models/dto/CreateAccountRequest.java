@@ -11,11 +11,11 @@ import java.math.BigDecimal;
 public class CreateAccountRequest {
 
     @NotBlank
-    @Schema(description = "Hesap adı (unique olmalı)", example = "Main Account")
+    @Schema(description = "Account Name (unique)", example = "Main Account")
     private String name;
 
     @NotNull
-    @Schema(description = "Başlangıç bakiyesi", example = "1000.00")
+    @Schema(description = "Starting Balance", example = "1000.00")
     private BigDecimal balance;
 
 }

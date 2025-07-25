@@ -34,13 +34,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String username = null;
         String jwt = null;
 
-        // Token'ı header'dan çıkar
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             jwt = authHeader.substring(7);
             log.debug("Extracted JWT: {}", jwt);
 
             try {
-                // Önce token'ı validate et
                 if (jwtTokenUtil.validateToken(jwt)) {
                     username = jwtTokenUtil.getUsernameFromToken(jwt);
                     log.debug("Username from JWT: {}", username);
@@ -54,12 +52,10 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             log.debug("No Bearer token found in Authorization header");
         }
 
-        // Eğer username var ve henüz authenticate olmamışsa
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             try {
                 UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
-                // Token'ı tekrar validate et (ekstra güvenlik)
                 if (jwtTokenUtil.validateToken(jwt)) {
                     UsernamePasswordAuthenticationToken authToken =
                             new UsernamePasswordAuthenticationToken(

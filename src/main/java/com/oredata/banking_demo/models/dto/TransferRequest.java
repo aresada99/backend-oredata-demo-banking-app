@@ -8,13 +8,13 @@ import java.math.BigDecimal;
 
 @Data
 public class TransferRequest {
-    @NotNull(message = "Gönderen hesap numarası boş olamaz")
-    @Schema(description = "Para gönderen hesap Id", example = "Main Account")
+    @NotNull(message = "Sender account number cannot be null")
+    @Schema(description = "ID of the account sending the money", example = "Main Account")
     private String sendingAccountNumber;
-    @NotNull(message = "Alıcı hesap numarası boş olamaz")
-    @Schema(description = "Para'nın gönderildiği hesap Id", example = "Dollar Account")
+    @NotNull(message = "Recipient account number cannot be null")
+    @Schema(description = "ID of the account receiving the money", example = "Dollar Account")
     private String receivingAccountNumber;
-    @NotNull(message = "Tutar boş olamaz")
-    @Schema(description = "Gönderilen Para Miktarı", example = "1000")
+    @NotNull(message = "Amount cannot be null")
+    @Schema(description = "Amount of money to be transferred", example = "1000")
     private BigDecimal amount;
 }

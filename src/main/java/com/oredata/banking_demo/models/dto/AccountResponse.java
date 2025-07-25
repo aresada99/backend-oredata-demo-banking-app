@@ -10,15 +10,15 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 public class AccountResponse {
-    @Schema(description = "Hesap UUID bilgisi", example = "1e6e4ad2-23e2-4a97-b8c6-38f45c210fad")
+    @Schema(description = "Account UUID", example = "1e6e4ad2-23e2-4a97-b8c6-38f45c210fad")
     private UUID id;
 
-    @Schema(description = "Hesap adı", example = "Main Account")
+    @Schema(description = "Account Name", example = "Main Account")
     private String name;
 
-    @Schema(description = "Sistem tarafından üretilen benzersiz hesap numarası", example = "ACC-000123")
+    @Schema(description = "Unique Account Number", example = "ACC-000123")
     private String number;
 
-    @Schema(description = "Hesap bakiyesi", example = "1500.75")
+    @Schema(description = "Account Balance", example = "1500.00")
     private BigDecimal balance;
 }

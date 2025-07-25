@@ -30,13 +30,13 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse<Object>> handleAccessDeniedException(AccessDeniedException ex) {
         return ResponseEntity
                 .status(HttpStatus.FORBIDDEN)
-                .body(new ApiResponse<>(HttpStatus.FORBIDDEN.value(), false, "Erişim reddedildi", null));
+                .body(new ApiResponse<>(HttpStatus.FORBIDDEN.value(), false, "Access denied", null));
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Object>> handleOtherExceptions(Exception ex) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(new ApiResponse<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), false, "Bilinmeyen bir hata oluştu", null));
+                .body(new ApiResponse<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), false, "An unknown error occurred", null));
     }
 }

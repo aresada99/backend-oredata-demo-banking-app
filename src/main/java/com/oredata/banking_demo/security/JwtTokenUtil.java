@@ -51,7 +51,6 @@ public class JwtTokenUtil {
         try {
             Jws<Claims> claims = parseClaims(token);
 
-            // Token'ın süresinin dolup dolmadığını kontrol et
             Date expiration = claims.getBody().getExpiration();
             if (expiration.before(new Date())) {
                 log.warn("Token has expired");
@@ -88,7 +87,6 @@ public class JwtTokenUtil {
                 .parseClaimsJws(token);
     }
 
-    // Token'dan user ID'yi almak için yardımcı method
     public String getUserIdFromToken(String token) {
         try {
             Claims claims = parseClaims(token).getBody();
@@ -99,7 +97,6 @@ public class JwtTokenUtil {
         }
     }
 
-    // Token'ın ne kadar süre kaldığını öğrenmek için
     public Date getExpirationDateFromToken(String token) {
         try {
             Claims claims = parseClaims(token).getBody();

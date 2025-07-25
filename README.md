@@ -4,6 +4,7 @@ The project uses JWT authentication, Axios for HTTP requests, React Redux for st
 
 ## .env file
 REACT_APP_API_BASE_URL=https://{your_url}/api
+## Project Overview
 
 ### Login & Register Pages
 Unless logging in and getting JWT token, users cannot reach any other routes except "/login" and "/register". If user tries to reach another route like "/dashboard/home", user automatically forwarded to "/login" route.

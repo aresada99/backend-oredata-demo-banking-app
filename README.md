@@ -1,53 +1,84 @@
-﻿# backend-oredata-demo-banking-app
-## This is the front-end of the demo project developed for the Oredata recruitment process.
-The project uses JWT authentication, Axios for HTTP requests, React Redux for state management, and React Router for client-side routing.
+# 🏦 `backend-oredata-demo-banking-app`
 
-## .env file
-REACT_APP_API_BASE_URL=https://{your_url}/api
-## Project Overview
+## This is the back-end of the demo project developed for the Oredata recruitment process.
 
-### Login & Register Pages
-Unless logging in and getting JWT token, users cannot reach any other routes except "/login" and "/register". If user tries to reach another route like "/dashboard/home", user automatically forwarded to "/login" route.
+This Spring Boot-based backend application is designed to simulate core functionalities of a modern banking system, with a focus on clean architecture, secure authentication, and data integrity.
 
-<img width="1080" height="680" alt="front-1" src="https://github.com/user-attachments/assets/d15f13d7-ad2b-4704-b0d6-94fb5f752100" />
-<img width="1080" height="681" alt="front-2" src="https://github.com/user-attachments/assets/8a7bd658-3355-4448-8f82-4eaef629b1c2" />
+### 🔐 Authentication & Authorization
 
-### Home Page and Components
-After logging in successfully, user gets JWT token and grants access to the application. User automatically forwarding to the "/dashboard/home" route after a successful login. Now user cannot reach "/login" and "/register" routes. If user tries to reach these routes, user automatically forwarded to "/dashboard/home" route. Now user can reach all available routes in the "/dashboard/**"
+- **Spring Security** is used to secure all endpoints with role-based access control.
+- **JWT (JSON Web Tokens)** is implemented to authenticate users and protect routes after login.
+- Unauthorized and unauthenticated access is handled gracefully with standardized error responses.
 
-On the Navbar, user can go any route as they wish quickly. Also on the right side, there is a user information and Logout button that applies the logging out logic for user. Deletes the token and forwards user to "/login" page.
+### 🔄 API Design & Documentation
 
-<img width="1080" height="685" alt="front-3" src="https://github.com/user-attachments/assets/52bcdf0a-e398-4bd0-92b9-c5901310edc4" />
+- All RESTful endpoints are clearly documented using **Swagger UI**, providing an interactive API interface for testing and exploration.
 
-### Account Pages
+### 🔁 Database Transactions
 
-In this panel, user can preview all accounts they have. On the top of the table, there are options for filtering accounts. In the page, user can go to the "Create New Account" page, "View Details" page and "Transaction History" of the selected account. 
+- For critical operations such as **money transfers**, **@Transactional** is used to ensure atomicity and consistency — the operation either completes fully or not at all, ensuring no partial updates or data corruption occur.
 
-<img width="1080" height="683" alt="front-4" src="https://github.com/user-attachments/assets/9947ddf5-007e-4045-a098-819e793793fe" />
-<img width="1080" height="681" alt="front-5" src="https://github.com/user-attachments/assets/74b65b67-00f5-4d43-af96-0fdd489a6499" />
-<img width="1080" height="682" alt="front-6" src="https://github.com/user-attachments/assets/ff2f7c8c-a72b-41a1-8767-f537dca6eaef" />
+### 🧩 Modular Structure
 
-In the Create Account page, user can create accounts. For testing, users can type their own balance when creating new account.
+- The project follows best practices in structuring layers (Controller, Service, Repository) to maintain separation of concerns and promote scalability and maintainability.
 
-<img width="1080" height="680" alt="front-7" src="https://github.com/user-attachments/assets/b769d445-833e-4a88-aa46-de968126d97c" />
+### 📦 Technologies Used
 
-In the Account Details page, user can view specific account's details. If user don't presses the "Update Account" button, this page can be view read only. However, if user presses the "Update Account" button new buttons shows up and Account Name becomes mutable and can be changed by user. Also users can delete their own account. 
+- Java 17  
+- Spring Boot 3.5.3  
+- Spring Security  
+- Spring Data JPA  
+- Spring Validation  
+- H2 (In-Memory Database for easily and quickly testing the app)  
+- JWT (via `jjwt`)  
+- Lombok  
+- Swagger UI (via Springdoc OpenAPI)  
+- Maven
+  
+> **Note:**  
+> H2 Database is used solely for ease of testing and to allow quick evaluation of the assignment.  
+> To switch to a real database, it is sufficient to configure the connection to your preferred DBMS (e.g., MySQL or PostgreSQL).  
+> All entities, repositories, and data access layers are designed to be compatible with production-grade databases and are ready for live deployment.
 
-<img width="1080" height="683" alt="front-8" src="https://github.com/user-attachments/assets/61b9b126-9244-4c85-b600-f36b563e957a" />
-<img width="1080" height="682" alt="front-9" src="https://github.com/user-attachments/assets/a4f195c0-423c-4ff0-8305-aaf5e211bf50" />
+---
 
-In the Transfer page, all accounts of the user are listed. User can select specific account and transfer money from it. When an account selected, the Sender Account Number box automatically filled and becomes immutable. Recipient Account Number can be entered by free text. Also if user wants to transfer between their own account, user can easily select the account and Recipient Account Number part will be filled automatically. Also user cannot transfer to the same account number. If Amount is sufficient and proper, transaction can be done. 
+## 🔧 `application.properties` File
 
-<img width="1080" height="685" alt="front-10" src="https://github.com/user-attachments/assets/fe3a5325-b2e4-4e38-b225-0f5e1757f226" />
-<img width="1080" height="683" alt="front-11" src="https://github.com/user-attachments/assets/dffee5f7-5f6a-4e6c-9414-8bb359dddf67" />
+Make sure to define the base URL for your API in the `.env` file as below:
 
-In the Transaction History page, user can see the specific account's transactions. Transaction Date can be seen on the table. "From" and "To" part, the blue text indicates that, that account is previewing right now. Amount part, shows that whether the money comes in or out. Status shows that the transaction completed successfully or failed.
+```env
+spring.application.name=banking-demo
 
-<img width="1080" height="682" alt="front-12" src="https://github.com/user-attachments/assets/bb0b52f9-76fc-4204-9902-0f9297a79954" />
+jwt.secret=your_jwt_secret
+jwt.expirationMs=86400000
 
-In these pictures, another user's (testuser2) account can be seen. The transfers also can be done between different user's accounts.  
+spring.h2.console.enabled=true
 
-<img width="1078" height="679" alt="front-13" src="https://github.com/user-attachments/assets/e068f1d6-0c30-4f13-af70-0ccaa602f7f1" />
-<img width="1080" height="680" alt="front-14" src="https://github.com/user-attachments/assets/498f89a8-8e89-4206-83ce-316a6e2af98c" />
+spring.h2.console.path=/h2-console
 
+spring.datasource.url=jdbc:h2:mem:testdb
+
+spring.datasource.username=sa
+spring.datasource.password=
+
+cors.allowed-origin=https://your_target_url
+```
+
+---
+
+## 🚀 Project Overview
+
+All API endpoints shown in the image. "/login" and "/register" routes are public routes. Also Swagger and h2-console related routes are public in order to easily test the application. These routes are just for testing, not suitable for production. 
+
+Other API endpoints are protected. Users must be authenticated before using these endpoints. 
+
+<img width="1080" height="681" alt="back-4" src="https://github.com/user-attachments/assets/cc45cad0-9ca4-45ed-b582-d65370c1f0c4" />
+
+These images shows the DB side of the application. All passwords are directly encrypted and stored in the DB hashed. So every password are storing safely in the DB. 
+
+<img width="1080" height="680" alt="back-1" src="https://github.com/user-attachments/assets/9b9ea96c-bf42-4192-8baf-a8d72eef496f" />
+<img width="1080" height="682" alt="back-2" src="https://github.com/user-attachments/assets/f219e392-59bd-4440-a87c-f9fdb0230832" />
+<img width="1080" height="682" alt="back-3" src="https://github.com/user-attachments/assets/c30dbfc6-68fc-40fb-9cb4-cbec50244e77" />
+
+---
 

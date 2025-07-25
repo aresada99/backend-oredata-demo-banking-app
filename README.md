@@ -41,5 +41,9 @@ In the Transaction History page, user can see the specific account's transaction
 
 <img width="1080" height="682" alt="front-12" src="https://github.com/user-attachments/assets/bb0b52f9-76fc-4204-9902-0f9297a79954" />
 
+In these pictures, another user's (testuser2) account can be seen. The transfers also can be done between different user's accounts.  
+
+<img width="1078" height="679" alt="front-13" src="https://github.com/user-attachments/assets/e068f1d6-0c30-4f13-af70-0ccaa602f7f1" />
+<img width="1080" height="680" alt="front-14" src="https://github.com/user-attachments/assets/498f89a8-8e89-4206-83ce-316a6e2af98c" />
 
 

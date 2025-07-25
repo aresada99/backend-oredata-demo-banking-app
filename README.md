@@ -32,7 +32,7 @@ In the Account Details page, user can view specific account's details. If user d
 <img width="1080" height="683" alt="front-8" src="https://github.com/user-attachments/assets/61b9b126-9244-4c85-b600-f36b563e957a" />
 <img width="1080" height="682" alt="front-9" src="https://github.com/user-attachments/assets/a4f195c0-423c-4ff0-8305-aaf5e211bf50" />
 
-In the Transfer page, all accounts of the user are listed. User can select specific account and transfer money from it. When an account selected, the 
+In the Transfer page, all accounts of the user are listed. User can select specific account and transfer money from it. When an account selected, the Sender Account Number box automatically filled and becomes immutable. Recipient Account Number can be entered by free text. Also if user wants to transfer between their own account, user can easily select the account and Recipient Account Number part will be filled automatically. Also user cannot transfer to the same account number. If Amount is sufficient and proper, transaction can be done. 
 
 <img width="1080" height="685" alt="front-10" src="https://github.com/user-attachments/assets/fe3a5325-b2e4-4e38-b225-0f5e1757f226" />
 <img width="1080" height="683" alt="front-11" src="https://github.com/user-attachments/assets/dffee5f7-5f6a-4e6c-9414-8bb359dddf67" />

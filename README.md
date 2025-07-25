@@ -1,63 +1,85 @@
 # 🏦 `backend-oredata-demo-banking-app`
 
-## This is the back-end of the demo project developed for the Oredata recruitment process.
+## Overview
 
-This Spring Boot-based backend application is designed to simulate core functionalities of a modern banking system, with a focus on clean architecture, secure authentication, and data integrity.
+This is the back-end of a demo banking application developed as part of the Oredata recruitment process.  
+Built with **Spring Boot**, it simulates the essential backend functionalities of a modern banking system with a strong focus on **clean architecture**, **security**, **data consistency**, and **modularity**.
 
-### 🔐 Authentication & Authorization
+---
 
-- **Spring Security** is used to secure all endpoints with role-based access control.
-- **JWT (JSON Web Tokens)** is implemented to authenticate users and protect routes after login.
-- Unauthorized and unauthenticated access is handled gracefully with standardized error responses.
+## 🔐 Authentication & Authorization
 
-### 🔄 API Design & Documentation
+- Secured with **Spring Security** and **JWT-based authentication**.
+- Implements **role-based access control** to restrict protected routes.
+- User passwords are **securely hashed and encrypted** before being stored in the database, ensuring they are never saved in plain text.
+- Public endpoints include `/login`, `/register`, and developer tools like Swagger and H2 Console (for testing purposes only).
+- Unauthorized access is handled with clear and standardized error responses.
 
-- All RESTful endpoints are clearly documented using **Swagger UI**, providing an interactive API interface for testing and exploration.
+---
 
-### 🔁 Database Transactions
+## 🔄 API Documentation
 
-- For critical operations such as **money transfers**, **@Transactional** is used to ensure atomicity and consistency — the operation either completes fully or not at all, ensuring no partial updates or data corruption occur.
+- All endpoints are documented using **Swagger UI**, which provides an interactive API explorer for quick testing and verification.
+- Swagger is enabled and publicly accessible to simplify evaluation of the assignment.
 
-### 🧩 Modular Structure
+---
 
-- The project follows best practices in structuring layers (Controller, Service, Repository) to maintain separation of concerns and promote scalability and maintainability.
+## 🔁 Transaction Management
 
-### 📦 Technologies Used
+- Critical operations like **money transfers** are wrapped with **`@Transactional`** to ensure **atomicity** and **data consistency**.
+- In the event of any failure, transactions are rolled back automatically to maintain database integrity.
+
+---
+
+## 🧩 Modular Codebase
+
+- Follows a layered architecture to maintain clear separation of concerns:
+  - `Controller` – handles incoming HTTP requests and outgoing responses.
+  - `Service` – contains business logic and orchestrates operations between layers.
+  - `Repository` – manages data persistence and retrieval using Spring Data JPA.
+  - `Model` – defines the core domain entities mapped to database tables.
+  - `DTO (Data Transfer Objects)` – used to transfer data between client and server, ensuring encapsulation and validation.
+  - `Config` – holds configuration classes such as security setup, JWT filters, CORS policies, and Swagger configuration.
+- Designed for scalability, maintainability, and easy unit/integration testing.
+
+---
+
+## 📦 Technologies Used
 
 - Java 17  
 - Spring Boot 3.5.3  
 - Spring Security  
 - Spring Data JPA  
 - Spring Validation  
-- H2 (In-Memory Database for easily and quickly testing the app)  
+- H2 (In-Memory Database for testing)  
 - JWT (via `jjwt`)  
 - Lombok  
 - Swagger UI (via Springdoc OpenAPI)  
 - Maven
-  
-> **Note:**  
-> H2 Database is used solely for ease of testing and to allow quick evaluation of the assignment.  
-> To switch to a real database, it is sufficient to configure the connection to your preferred DBMS (e.g., MySQL or PostgreSQL).  
-> All entities, repositories, and data access layers are designed to be compatible with production-grade databases and are ready for live deployment.
 
 ---
 
-## 🔧 `application.properties` File
+> **Note:**  
+> H2 Database is used solely for ease of testing and quick evaluation.  
+> To migrate to a real database (such as MySQL or PostgreSQL), it's sufficient to update the database configuration.  
+> All entities, repositories, and services are already designed to work seamlessly with production-grade relational databases.
 
-Make sure to define the base URL for your API in the `.env` file as below:
+---
 
-```env
+## 🔧 Configuration – `application.properties`
+
+Set your backend configurations in `application.properties` as shown below:
+
+```properties
 spring.application.name=banking-demo
 
 jwt.secret=your_jwt_secret
 jwt.expirationMs=86400000
 
 spring.h2.console.enabled=true
-
 spring.h2.console.path=/h2-console
 
 spring.datasource.url=jdbc:h2:mem:testdb
-
 spring.datasource.username=sa
 spring.datasource.password=
 

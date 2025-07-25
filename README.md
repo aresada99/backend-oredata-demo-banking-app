@@ -2,6 +2,9 @@
 ## This is the front-end of the demo project developed for the Oredata recruitment process.
 The project uses JWT authentication, Axios for HTTP requests, React Redux for state management, and React Router for client-side routing.
 
+## .env file
+REACT_APP_API_BASE_URL=https://{your_url}/api
+
 ### Login & Register Pages
 Unless logging in and getting JWT token, users cannot reach any other routes except "/login" and "/register". If user tries to reach another route like "/dashboard/home", user automatically forwarded to "/login" route.
 

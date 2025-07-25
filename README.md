@@ -37,4 +37,9 @@ In the Transfer page, all accounts of the user are listed. User can select speci
 <img width="1080" height="685" alt="front-10" src="https://github.com/user-attachments/assets/fe3a5325-b2e4-4e38-b225-0f5e1757f226" />
 <img width="1080" height="683" alt="front-11" src="https://github.com/user-attachments/assets/dffee5f7-5f6a-4e6c-9414-8bb359dddf67" />
 
+In the Transaction History page, user can see the specific account's transactions. Transaction Date can be seen on the table. "From" and "To" part, the blue text indicates that, that account is previewing right now. Amount part, shows that whether the money comes in or out. Status shows that the transaction completed successfully or failed.
+
+<img width="1080" height="682" alt="front-12" src="https://github.com/user-attachments/assets/bb0b52f9-76fc-4204-9902-0f9297a79954" />
+
+
 

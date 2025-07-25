@@ -87,20 +87,22 @@ cors.allowed-origin=https://your_target_url
 ```
 
 ---
-
 ## 🚀 Project Overview
 
-All API endpoints shown in the image. "/login" and "/register" routes are public routes. Also Swagger and h2-console related routes are public in order to easily test the application. These routes are just for testing, not suitable for production. 
+The image below illustrates all available API endpoints.  
+Public routes include `/login` and `/register`, as well as developer tools such as Swagger UI and the H2 Console. These public endpoints are provided solely for testing and evaluation purposes and are **not recommended for production use**.
 
-Other API endpoints are protected. Users must be authenticated before using these endpoints. 
+All other API endpoints are **protected** and require users to be authenticated via JWT before access is granted.
 
-<img width="1080" height="681" alt="back-4" src="https://github.com/user-attachments/assets/cc45cad0-9ca4-45ed-b582-d65370c1f0c4" />
-
-These images shows the DB side of the application. All passwords are directly encrypted and stored in the DB hashed. So every password are storing safely in the DB. 
-
-<img width="1080" height="680" alt="back-1" src="https://github.com/user-attachments/assets/9b9ea96c-bf42-4192-8baf-a8d72eef496f" />
-<img width="1080" height="682" alt="back-2" src="https://github.com/user-attachments/assets/f219e392-59bd-4440-a87c-f9fdb0230832" />
-<img width="1080" height="682" alt="back-3" src="https://github.com/user-attachments/assets/c30dbfc6-68fc-40fb-9cb4-cbec50244e77" />
+<img width="1080" height="681" alt="API Endpoints Overview" src="https://github.com/user-attachments/assets/cc45cad0-9ca4-45ed-b582-d65370c1f0c4" />
 
 ---
 
+The following screenshots showcase the database side of the application.  
+User passwords are **hashed and securely encrypted** before being stored, ensuring that sensitive data is never saved in plaintext and is protected against unauthorized access.
+
+<img width="1080" height="680" alt="Database Password Hashing" src="https://github.com/user-attachments/assets/9b9ea96c-bf42-4192-8baf-a8d72eef496f" />
+<img width="1080" height="682" alt="Database Sample Data" src="https://github.com/user-attachments/assets/f219e392-59bd-4440-a87c-f9fdb0230832" />
+<img width="1080" height="682" alt="Database Sample Data" src="https://github.com/user-attachments/assets/c30dbfc6-68fc-40fb-9cb4-cbec50244e77" />
+
+---
